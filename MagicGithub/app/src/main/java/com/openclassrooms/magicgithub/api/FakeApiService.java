@@ -4,6 +4,7 @@ import com.openclassrooms.magicgithub.model.User;
 
 import java.util.List;
 
+import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.FAKE_USERS_RANDOM;
 import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.generateUsers;
 
 public class FakeApiService implements ApiService {
@@ -16,8 +17,7 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public List<User> getUsers() {
-        // TODO: A modifier
-        return null;
+        return users;
     }
 
     /**
@@ -26,7 +26,7 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public void generateRandomUser() {
-        // TODO: A modifier
+        users.add(FAKE_USERS_RANDOM.get((int) (Math.random() * FAKE_USERS_RANDOM.size())));
     }
 
     /**
@@ -34,6 +34,6 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public void deleteUser(User user) {
-        // TODO: A modifier
+        users.remove(user);
     }
 }
